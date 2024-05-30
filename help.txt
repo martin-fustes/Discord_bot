@@ -1,0 +1,5 @@
+!cat -> Foto aleatoria de un gato.
+!catsay "Algo" -> Foto aleatoria de un gato con "Algo" de texto.
+!catlike "Algo" -> Foto aleatoria de un gato con "Algo" como tag.
+!catlikesay "Algo/Algo2" -> Foto aleatoria de un gato con "Algo" como tag y "ALgo2" como texto.
+!catgif -> Gif aleatorio de un gato.
