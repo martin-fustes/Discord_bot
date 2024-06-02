@@ -13,7 +13,7 @@ namespace TextCommandFramework;
 
 class Program
 {
-    public const string pathConfigFile = "config.json";
+    public const string PathConfigFile = "config.json";
 
     // There is no need to implement IDisposable like before as we are
     // using dependency injection, which handles calling Dispose for us.
@@ -69,7 +69,7 @@ class Program
     {
         return new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile(pathConfigFile)
+            .AddJsonFile(Program.PathConfigFile)
             .Build();
     }
 }
