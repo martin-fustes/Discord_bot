@@ -69,7 +69,7 @@ class Program
     {
         return new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile(Program.PathConfigFile)
+            .AddJsonFile(Program.PathConfigFile) // .AddEnvironmentVariables()
             .Build();
     }
 }
