@@ -6,16 +6,20 @@ on:
       - main
 
 jobs:
-  build:
+  api_calls:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # ... your other steps ...
-
-      - name: Call API with curl
+      - name: Authenticate and use Bearer Token
         run: |
-          curl -X POST https://your.api/endpoint \
+          # 1. Authenticate and get the bearer token (replace with your auth endpoint and credentials)
+          TOKEN=$(curl -s -X POST "https://your-auth-endpoint.com/token" \
+            -H "Content-Type: application/json" \
+            -d '{"username":"youruser","password":"yourpass"}' | jq -r '.access_token')
+
+          echo "Received token: $TOKEN"
+
+          # 2. Use the bearer token in the next API call
+          curl -X POST "https://your-api-endpoint.com/your-action" \
+            -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"key":"value"}'
